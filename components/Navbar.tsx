@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
-import { FaBars } from 'react-icons/fa';
+import { FaBars } from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -10,17 +11,20 @@ const Navbar = () => {
         {/* image  */}
         <Image
           className="w-14"
-          width={20}
-          height={20}
-          src="/ssulogo.png"
+          width={80}
+          height={80}
+          src="/ssunewlogo.png"
           alt="logo"
         />
-        <h1 className="text-xl font-black">Auxilliary <br/>Services</h1>
+        <h1 className="text-xl font-black">
+          Auxilliary <br />
+          Services
+        </h1>
       </div>
 
       {/* Hamburger menu  */}
       <div className="lg:hidden text-white">
-        <FaBars size={20}/>
+        <FaBars size={20} />
       </div>
 
       {/* right  */}
@@ -32,8 +36,14 @@ const Navbar = () => {
           <li>Contact Us</li>
         </ul>
         <div className="flex items-center gap-8 text-xl font-bold">
-          <button>Login</button>
-          <button className="py-3 border border-yellow-300/90 px-6 rounded-xl bg-yellow-300/90">Sign Up</button>
+          <Link href="/login">
+            <button>Login</button>
+          </Link>
+          <Link href="signup">
+            <button className="py-3 border border-yellow-300/90 px-6 rounded-xl bg-yellow-300/90">
+              Sign Up
+            </button>
+          </Link>
         </div>
       </div>
     </div>
