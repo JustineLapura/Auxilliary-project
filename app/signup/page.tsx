@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { AiFillHome } from "react-icons/ai";
 
 const page = () => {
   return (
@@ -53,7 +54,7 @@ const page = () => {
         <div className="flex gap-2">
           <Link href="/">
             <button className="py-2 px-3 rounded-lg bg-red-500/80 font-bold shadow-xl text-white ">
-              Back
+            <AiFillHome size={25} />
             </button>
           </Link>
           <button className="py-2 px-8 rounded-lg bg-blue-500 font-bold shadow-xl text-white ">

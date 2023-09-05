@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import {AiFillHome} from "react-icons/ai"
 
 const page = () => {
   return (
     <div className="relative h-screen w-full bg-gradient-to-b from-blue-500 to-yellow-300 flex justify-center items-center text-gray-900">
-      <div className="flex justify-evenly items-center bg-gray-300/30 rounded-xl h-2/3 w-2/3 overflow-hidden">
+      <div className="flex justify-evenly items-center bg-gray-300/30 rounded-xl h-[450px] w-[300px] md:w-2/3 overflow-hidden">
         <div className="hidden lg:flex justify-center items-center bg-gray-300/50 h-full w-full">
           <Image
             className="w-1/2 hidden lg:flex"
@@ -48,7 +49,7 @@ const page = () => {
           <div className="flex gap-2">
           <Link href="/">
             <button className="py-2 px-3 rounded-lg bg-red-500/80 font-bold shadow-xl text-white ">
-              Back
+              <AiFillHome size={25} />
             </button>
           </Link>
           <button className="py-2 px-8 rounded-lg bg-blue-500 font-bold shadow-xl text-white ">

@@ -30,10 +30,18 @@ const Navbar = () => {
       {/* right  */}
       <div className="h-full hidden lg:flex items-center gap-16 text-white">
         <ul className="flex justify-center items-center uppercase text-lg gap-8">
-          <li>Home</li>
-          <li>Services</li>
-          <li>Rental</li>
-          <li>Contact Us</li>
+          <Link href="/">
+            <li>Home</li>
+          </Link>
+          <Link href="/services">
+            <li>Services</li>
+          </Link>
+          <Link href="/rentals">
+            <li>Rental</li>
+          </Link>
+          <Link href="/contacts">
+            <li>Contact Us</li>
+          </Link>
         </ul>
         <div className="flex items-center gap-8 text-xl font-bold">
           <Link href="/login">
