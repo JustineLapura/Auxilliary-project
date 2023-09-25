@@ -2,9 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { FaCircle } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
-import { facilities } from "../page";
+import { facilities } from "@/app/facilities";
 import Image from "next/image";
-import Link from "next/link";
 
 interface RouteParams {
   id: number; // Assuming 'id' is a string, change the type if it's different
