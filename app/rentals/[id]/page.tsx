@@ -10,12 +10,12 @@ interface RouteParams {
   id: number; // Assuming 'id' is a string, change the type if it's different
 }
 
-const page = (params: { params: RouteParams }) => {
+const Page = ({params}: { params: RouteParams }) => {
   const [facility, setFacility] = useState<
     { id: number; img: string; name: string }[]
   >([]); // Provide the correct type for the state
 
-  const { id } = params.params;
+  const { id } = params;
   const displayedFacility = facility[id - 1];
   // console.log(id);
 
@@ -23,7 +23,7 @@ const page = (params: { params: RouteParams }) => {
 
   useEffect(() => {
     setFacility(facilities);
-  });
+  }, []);
   return (
     <div className="w-full min-h-screen px-6 pt-10">
       {displayedFacility ? (
@@ -91,4 +91,4 @@ const page = (params: { params: RouteParams }) => {
   );
 };
 
-export default page;
+export default Page;
