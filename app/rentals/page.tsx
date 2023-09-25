@@ -35,7 +35,7 @@ export const facilities = [
     name: "Function Room (COED)",
   },
 ];
-const page = () => {
+const Page = () => {
   return (
     <div className="h-full w-full">
       <div className='relative h-screen w-full  bg-[url("/SSU.jpg")] bg-no-repeat bg-cover bg-center'>
@@ -85,4 +85,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
