@@ -38,7 +38,7 @@ const Navbar = () => {
       <div
         className={
           nav
-            ? "fixed lg:hidden top-0 left-0 w-full h-screen bg-blue-950/80"
+            ? "fixed lg:hidden top-0 left-0 w-full h-screen bg-blue-950/80 z-20"
             : "hidden"
         }
       />
@@ -47,30 +47,30 @@ const Navbar = () => {
       <div
         className={
           nav
-            ? "fixed h-[90%] w-[90%] lg:hidden text-blue-900 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 py-10 bg-white rounded-2xl z-20 ease-in duration-300"
-            : "fixed h-[90%] w-[90%] text-blue-900 left-1/2 top-[-100%] transform -translate-x-1/2 -translate-y-1/2 py-10 bg-white rounded-2xl z-10 ease-in duration-300"
+            ? "fixed h-[75%] w-[90%] lg:hidden text-blue-900 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 py-10 bg-white rounded-2xl z-20 ease-in duration-300"
+            : "fixed h-[75%] w-[90%] text-blue-900 left-1/2 top-[-100%] transform -translate-x-1/2 -translate-y-1/2 py-10 bg-white rounded-2xl z-10 ease-in duration-300"
         }
       >
-        <ul className="p-5 flex flex-col items-center space-y-10">
-          <li className="text-blue-400 cursor-pointer">
+        <ul className="p-5 w-full flex flex-col items-center space-y-3">
+          <li className="cursor-pointer hover:bg-blue-500 w-full py-3 rounded-full text-center hover:text-white">
             <Link onClick={() => setNav(false)} href="/">
               Home
             </Link>
           </li>
 
-          <li className="cursor-pointer hover:text-blue-400">
+          <li className="cursor-pointer hover:bg-blue-500 w-full py-3 rounded-full text-center hover:text-white">
             <Link onClick={() => setNav(false)} href="/services">
               Services
             </Link>
           </li>
 
-          <li className="cursor-pointer hover:text-blue-400">
+          <li className="cursor-pointer hover:bg-blue-500 w-full py-3 rounded-full text-center hover:text-white">
             <Link onClick={() => setNav(false)} href="/rentals">
               Rental
             </Link>
           </li>
 
-          <li className="cursor-pointer hover:text-blue-400">
+          <li className="cursor-pointer hover:bg-blue-500 w-full py-3 rounded-full text-center hover:text-white">
             <Link onClick={() => setNav(false)} href="/contacts">
               Contact Us
             </Link>
@@ -96,7 +96,7 @@ const Navbar = () => {
 
         <div
           onClick={() => setNav(false)}
-          className="flex justify-center items-center p-3 rounded-full hover:bg-gray-300 duration-300 h-16 w-16 mx-auto cursor-pointer"
+          className="absolute top-2 right-2 flex justify-center items-center p-3 rounded-full hover:bg-gray-300 duration-300 h-10 w-10 mx-auto cursor-pointer"
         >
           <FaTimes size={20} />
         </div>
@@ -105,25 +105,25 @@ const Navbar = () => {
       {/* right  */}
       <div className="h-full hidden lg:flex items-center gap-16 text-white">
         <ul className="flex justify-center items-center uppercase text-lg gap-8">
-          <Link href="/">
+          <Link className="hover:text-blue-200/90" href="/">
             <li>Home</li>
           </Link>
-          <Link href="/services">
+          <Link className="hover:text-blue-200/90" href="/services">
             <li>Services</li>
           </Link>
-          <Link href="/rentals">
+          <Link className="hover:text-blue-200/90" href="/rentals">
             <li>Rental</li>
           </Link>
-          <Link href="/contacts">
+          <Link className="hover:text-blue-200/90" href="/contacts">
             <li>Contact Us</li>
           </Link>
         </ul>
         <div className="flex items-center gap-8 text-xl font-bold">
-          <Link href="/login">
+          <Link className="hover:text-blue-200/90" href="/login">
             <button>Login</button>
           </Link>
           <Link href="signup">
-            <button className="py-3 border border-yellow-300/90 px-6 rounded-xl bg-yellow-300/90">
+            <button className="py-3 border bg-yellow-300/90 hover:bg-yellow-400 duration-300 px-6 rounded-xl ">
               Sign Up
             </button>
           </Link>
