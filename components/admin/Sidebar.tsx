@@ -19,7 +19,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
             </div>
           </Link>
           <span className="border-b-[1px] border-gray-200 w-full p-2 my-1"></span>
-          <Link href="/crypto/demo-1/admin">
+          <Link href="/admin/bookings">
             <div className="group w-full flex justify-between items-center gap-2 px-2 lg:mr-3 lg:hover:bg-gray-100 ">
               <div className="bg-gray-100 group-hover:bg-white hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block">
                 <RxDashboard size={20} />
