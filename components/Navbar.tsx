@@ -9,7 +9,7 @@ const Navbar = () => {
   const [nav, setNav] = useState(false);
 
   return (
-    <div className="h-24 w-full bg-blue-900/70 mx-auto flex justify-between items-center px-4">
+    <div className="fixed h-24 w-full bg-blue-900/90 mx-auto flex justify-between items-center px-4 z-20">
       {/* left */}
       <div className="text-white font-bold text-xl flex gap-4 items-center">
         {/* image  */}

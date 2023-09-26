@@ -7,31 +7,19 @@ import { facilities } from "../facilities";
 
 const Page = () => {
   return (
-    <div className="h-full w-full">
-      <div className='relative h-screen w-full  bg-[url("/SSU.jpg")] bg-no-repeat bg-cover bg-center'>
-        <div className="absolute top-0 left-0 h-full w-full bg-blue-500/50"></div>
-
-        <div className="flex justify-center items-center h-full w-full">
-          <h1 className="text-5xl md:text-7xl font-black text-white z-10 mb-36 tracking-widest">
-            FACILITIES
-          </h1>
-        </div>
-
-        {/*image slider  */}
-        <div className="absolute bottom-0 h-20 w-full flex justify-center items-center bg-blue-900 blur"></div>
-      </div>
+    <div className="h-full w-full pt-24">
       <div className="h-full w-full max-w-[960px] mx-auto py-12">
-        <h1 className="text-center mb-10 text-blue-950 uppercase font-black text-3xl md:text-5xl">
+        <h1 className="text-center mb-10 text-blue-950 uppercase font-black text-5xl md:text-5xl">
           Facilities
         </h1>
-        <div className="grid place-items-center gap-20 sm:grid-cols-2 md:grid-cols-3 mt-16">
+        <div className="grid place-items-center gap-20 lg:gap-36 sm:grid-cols-2 md:grid-cols-3 mt-16">
           {facilities.map((facility) => (
             <div
               key={facility.name}
-              className="h-[200px] w-[200px] text-center flex flex-col justify-center items-center gap-4"
+              className="h-[300px] w-[300px] text-center flex flex-col justify-center items-center gap-4"
             >
               <Image
-                className="rounded-xl h-full w-full hover:scale-105 duration-200 transform"
+                className="rounded-xl h-full w-full hover:scale-105 duration-200 transform -z-10"
                 width={100}
                 height={100}
                 src="/SSU.jpg"

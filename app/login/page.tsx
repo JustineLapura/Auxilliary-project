@@ -19,9 +19,9 @@ const page = () => {
   };
 
   return (
-    <div className="relative h-screen w-full bg-gradient-to-b from-blue-500 to-yellow-300 flex justify-center items-center text-gray-900">
-      <div className="flex justify-evenly items-center bg-gray-300/30 rounded-xl h-[450px] w-[300px] md:w-2/3 overflow-hidden">
-        <div className="hidden lg:flex justify-center items-center bg-gray-300/50 h-full w-full">
+    <div className="relative h-screen w-full pt-24 bg-gradient-to-b from-blue-500 to-yellow-300 flex justify-center items-center text-gray-900">
+      <div className="w- flex justify-evenly items-center bg-gray-300/30 rounded-xl h-[450px] w-[300px] md:w-2/3 overflow-hidden">
+        <div className=" hidden lg:flex justify-center items-center bg-gray-300/50 h-full w-full">
           <Image
             className="w-1/2 hidden lg:flex"
             width={100}

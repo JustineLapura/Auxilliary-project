@@ -29,7 +29,7 @@ const Page = ({ params }: { params: RouteParams }) => {
     setFacility(facilities);
   }, []);
   return (
-    <div className="w-full h-full px-6 pt-10">
+    <div className="w-full h-full px-6 pt-32">
       {displayedFacility ? (
         <div className="w-full h-ful lg:flex justify-between items-center gap-16">
           <Image
@@ -55,9 +55,9 @@ const Page = ({ params }: { params: RouteParams }) => {
                 </button>
               </div>
             </div>
-            <div className="text-gray-900 p-5">
-              <p className="font-bold md:text-lg">Details</p>
-              <ul className="p-5 text-sm md:text-base">
+            <div className="text-gray-900 py-5">
+              <p className="font-bold md:text-xl text-gray-700">Details</p>
+              <ul className="p-5 text-sm md:text-base text-gray-500 font-semibold">
                 <li className="flex gap-2 items-center">
                   <FaCircle size={5} />
                   Government Agencies - ₱8,000/ 8hour
@@ -73,18 +73,23 @@ const Page = ({ params }: { params: RouteParams }) => {
               </ul>
             </div>
             <div className="hidden lg:block mb-12">
-              <button onClick={() => setIsBooking(true)} className="py-3 px-6 rounded-full bg-blue-800 text-lg text-white font-semibold hover:bg-blue-600 hover:text-blue-100 hover:scale-105 duration-300">
+              <button
+                onClick={() => setIsBooking(true)}
+                className="py-3 px-6 rounded-full bg-blue-800 text-lg text-white font-semibold hover:bg-blue-600 hover:text-blue-100 hover:scale-105 duration-300"
+              >
                 Book now
               </button>
             </div>
-            <div className="w-full max-w-[600px] flex justify-between md:text-2xl pb-8 md:pb-0">
-              <h1 className="">How was your Experience?</h1>
+            <div className="w-full max-w-[600px] flex justify-between text-xl md:text-2xl pb-8 md:pb-0">
+              <h1 className="text-gray-700 font-bold">
+                How was your Experience?
+              </h1>
               <div className="flex justify-between items-center gap-3 text-yellow-500">
-                <AiFillStar />
-                <AiFillStar />
-                <AiFillStar />
-                <AiFillStar />
-                <AiFillStar />
+                  <AiFillStar />
+                  <AiFillStar />
+                  <AiFillStar />
+                  <AiFillStar />
+                  <AiFillStar />
               </div>
             </div>
           </div>
@@ -111,14 +116,20 @@ const Page = ({ params }: { params: RouteParams }) => {
       >
         {displayedFacility && (
           <h1 className="text-xl text-center font-bold text-gray-900">
-            Are you sure you want to book <br/> {displayedFacility.name}?
+            Are you sure you want to book <br /> {displayedFacility.name}?
           </h1>
         )}
         <div className="space-x-4 text-lg font-bold">
-          <button onClick={closeBookingModal} className="px-6 py-2 bg-red-500 text-white rounded-full hover:scale-105 duration-300">
+          <button
+            onClick={closeBookingModal}
+            className="px-6 py-2 bg-red-500 text-white rounded-full hover:scale-105 duration-300"
+          >
             No
           </button>
-          <button onClick={closeBookingModal} className="px-6 py-2 bg-blue-900 text-white rounded-full hover:scale-105 duration-300">
+          <button
+            onClick={closeBookingModal}
+            className="px-6 py-2 bg-blue-900 text-white rounded-full hover:scale-105 duration-300"
+          >
             Yes
           </button>
         </div>
