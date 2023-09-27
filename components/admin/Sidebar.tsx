@@ -35,7 +35,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
               <h1 className="hidden lg:block text-xs">Rented <br/> Facilities</h1>
             </div>
           </Link>
-          <Link href="/crypto/demo-1/admin/services">
+          <Link href="/admin/add-facilities">
             <div className="group w-full flex justify-between items-center gap-4 px-2 lg:hover:bg-gray-100">
               <div className="bg-gray-100 group-hover:bg-white hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block">
                 <FaTooth size={20} />

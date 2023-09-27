@@ -123,7 +123,7 @@ const Navbar = () => {
             <button>Login</button>
           </Link>
           <Link href="signup">
-            <button className="py-3 border bg-yellow-300/90 hover:bg-yellow-400 duration-300 px-6 rounded-xl ">
+            <button className="py-3 border border-yellow-400 bg-yellow-400 hover:bg-yellow-300 hover:scale-105 duration-300 px-6 rounded-xl ">
               Sign Up
             </button>
           </Link>
