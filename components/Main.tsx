@@ -19,7 +19,7 @@ const Main = () => {
 
         {/* Main button  */}
         <Link href="/rentals">
-          <button className="py-3 px-6 rounded-lg bg-yellow-300/90 font-bold shadow-xl">
+          <button className="py-3 px-6 rounded-lg bg-yellow-300/90 font-bold shadow-xl hover:scale-105 duration-200">
             Check Availability
           </button>
         </Link>
