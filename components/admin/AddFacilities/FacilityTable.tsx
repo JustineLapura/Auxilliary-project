@@ -1,4 +1,20 @@
 import React from "react";
+import FacilityTableCard from "./FacilityTableCard";
+
+const facilities = [
+  {
+    id: 1,
+    facilityName: "AVC_RIC",
+  },
+  {
+    id: 2,
+    facilityName: "Convention Center",
+  },
+  {
+    id: 3,
+    facilityName: "Conference Room",
+  },
+];
 
 const FacilityTable = () => {
   return (
@@ -12,42 +28,12 @@ const FacilityTable = () => {
           </tr>
         </thead>
         <tbody className="text-sm sm:text-base font-semibold text-gray-600">
-          <tr>
-            <td>1</td>
-            <td>AVC-RIC</td>
-            <td>
-              <button className="py-1 px-5 border bg-blue-500 hover:bg-blue-600 text-white rounded-lg">
-                View
-              </button>
-              <button className="py-1 px-4 ms-2 border bg-red-500 hover:bg-red-600 text-white rounded-lg">
-                Delete
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>AVC-RIC</td>
-            <td>
-              <button className="py-1 px-5 border bg-blue-500 hover:bg-blue-600 text-white rounded-lg">
-                View
-              </button>
-              <button className="py-1 px-4 ms-2 border bg-red-500 hover:bg-red-600 text-white rounded-lg">
-                Delete
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>AVC-RIC</td>
-            <td>
-              <button className="py-1 px-5 border bg-blue-500 hover:bg-blue-600 text-white rounded-lg">
-                View
-              </button>
-              <button className="py-1 px-4 ms-2 border bg-red-500 hover:bg-red-600 text-white rounded-lg">
-                Delete
-              </button>
-            </td>
-          </tr>
+          {facilities.map((facility) => (
+            <FacilityTableCard
+              id={facility.id}
+              facilityName={facility.facilityName}
+            />
+          ))}
         </tbody>
       </table>
     </div>

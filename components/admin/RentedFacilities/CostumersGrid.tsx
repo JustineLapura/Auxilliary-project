@@ -1,41 +1,38 @@
 import React from "react";
+import RentedFacilityGridCards from "./RentedFacilityGridCards";
+
+const rentedFacilities = [
+  {
+    facility: "Conference Room",
+    name: "Jireh Lapura",
+    date: "09/22/2021",
+    time: "2:00 PM",
+  },
+  {
+    facility: "SSU Gymnasium",
+    name: "Justine Lapura",
+    date: "09/25/2021",
+    time: "8:00 AM",
+  },
+  {
+    facility: "Convention Room",
+    name: "Jethro Lapura",
+    date: "09/31/2021",
+    time: "5:00 PM",
+  },
+];
 
 const CostumersGrid = () => {
   return (
     <div className="sm:hidden grid gap-4 place-items-center mt-8">
-      {/* card 1 */}
-      <div className="w-[90%] p-5 bg-gray-100 border-gray-200 font-semibold text-gray-500 rounded-lg space-y-2 hover:scale-105 duration-200 cursor-pointer">
-        <div className="flex justify-between items-center ">
-          <h1 className="text-gray-900 font-bold">Jireh Lapura</h1>
-          <p>09/22/2021</p>
-        </div>
-        <div className="flex justify-between items-center">
-          <h1 className="text-blue-500 font-bold">SSU Gymnasium</h1>
-          <p>2:00 PM</p>
-        </div>
-      </div>
-      {/* card 1 */}
-      <div className="w-[90%] p-5 bg-gray-100 border-gray-200 font-semibold text-gray-500 rounded-lg space-y-2 hover:scale-105 duration-200 cursor-pointer">
-        <div className="flex justify-between items-center ">
-          <h1 className="text-gray-900 font-bold">Jireh Lapura</h1>
-          <p>09/22/2021</p>
-        </div>
-        <div className="flex justify-between items-center">
-          <h1 className="text-blue-500 font-bold">Conference Room</h1>
-          <p>2:00 PM</p>
-        </div>
-      </div>
-      {/* card 1 */}
-      <div className="w-[90%] p-5 bg-gray-100 border-gray-200 font-semibold text-gray-500 rounded-lg space-y-2 hover:scale-105 duration-200 cursor-pointer">
-        <div className="flex justify-between items-center ">
-          <h1 className="text-gray-900 font-bold">Jireh Lapura</h1>
-          <p>09/22/2021</p>
-        </div>
-        <div className="flex justify-between items-center">
-          <h1 className="text-blue-500 font-bold">Convention Center</h1>
-          <p>2:00 PM</p>
-        </div>
-      </div>
+      {rentedFacilities.map((rentedFacility) => (
+        <RentedFacilityGridCards
+          facility={rentedFacility.facility}
+          name={rentedFacility.name}
+          date={rentedFacility.date}
+          time={rentedFacility.time}
+        />
+      ))}
     </div>
   );
 };

@@ -1,4 +1,26 @@
 import React from "react";
+import CostumersTableCard from "./RentedFacilityTableCard";
+
+const rentedFacilities = [
+  {
+    facility: "Conference Room",
+    name: "Jireh Lapura",
+    date: "09/22/2021",
+    time: "2:00 PM"
+  },
+  {
+    facility: "SSU Gymnasium",
+    name: "Justine Lapura",
+    date: "09/25/2021",
+    time: "8:00 AM"
+  },
+  {
+    facility: "Convention Room",
+    name: "Jethro Lapura",
+    date: "09/31/2021",
+    time: "5:00 PM"
+  }
+]
 
 const CostumersTable = () => {
   return (
@@ -13,12 +35,9 @@ const CostumersTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="text-xs md:text-base font-semibold text-gray-700">
-            <td>SSU Gymnasium</td>
-            <td>Jireh Lapura</td>
-            <td>09/22/2021</td>
-            <td>2:00 PM</td>
-          </tr>
+          {rentedFacilities.map(rentedFacility => (
+            <CostumersTableCard facility={rentedFacility.facility} name={rentedFacility.name} date={rentedFacility.date} time={rentedFacility.time} />
+          ))}
           <tr className="text-xs md:text-base font-semibold text-gray-700 py-2">
             <td>Conference Room</td>
             <td>Jireh Lapura</td>
