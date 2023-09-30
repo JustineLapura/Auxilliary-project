@@ -1,21 +1,24 @@
 "use client";
 import React, { useState } from "react";
 import DeleteFacilityModal from "./DeleteFacilityModal";
+import ViewFacilityModal from "./ViewFacilityModal";
 
 type FacilityTableCardProps = {
   id: number;
+  img: string;
   facilityName: string;
 };
 
-const FacilityTableCard = ({ id, facilityName }: FacilityTableCardProps) => {
+const FacilityTableCard = ({ id, img, facilityName }: FacilityTableCardProps) => {
   const [deleteModal, setDeleteModal] = useState(false);
+  const [viewModal, setViewModal] = useState(false)
   return (
     <>
       <tr>
         <td>{id}</td>
         <td>{facilityName}</td>
         <td>
-          <button className="py-1 px-5 border bg-blue-500 hover:bg-blue-600 text-white rounded-lg">
+          <button onClick={() => setViewModal(true)} className="py-1 px-5 border bg-blue-500 hover:bg-blue-600 text-white rounded-lg">
             View
           </button>
           <button
@@ -27,6 +30,10 @@ const FacilityTableCard = ({ id, facilityName }: FacilityTableCardProps) => {
         </td>
       </tr>
 
+
+      {/* View Modal   */}
+      <ViewFacilityModal id={id} name={facilityName} img={img} viewModal={viewModal} setViewModal={setViewModal} />
+      {/* Delete Modal  */}
       <DeleteFacilityModal
         id={id}
         facilityName={facilityName}

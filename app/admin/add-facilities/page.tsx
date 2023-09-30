@@ -1,24 +1,35 @@
 "use client";
 import AddFacilityModal from "@/components/admin/AddFacilities/AddFacilityModal";
-import DeleteFacilityModal from "@/components/admin/AddFacilities/DeleteFacilityModal";
 import FacilityGrid from "@/components/admin/AddFacilities/FacilityGrid";
 import FacilityTable from "@/components/admin/AddFacilities/FacilityTable";
 import TopHeader from "@/components/admin/AddFacilities/TopHeader";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { facilities } from "@/app/facilities";
+import Image from "next/image";
 
 const page = () => {
   const [addModal, setAddModal] = useState(false);
+  const [facilitiesData, setFacilitiesData] = useState<
+    { id: number; img: string; name: string }[]
+  >([]);
+
+  useEffect(() => {
+    setFacilitiesData(facilities);
+  }, []);
 
   return (
     <div className="w-full p-5">
       {/* Top Header Section  */}
-      <TopHeader setAddModal={setAddModal}/>
+      <TopHeader
+        facilitiesCount={facilitiesData.length}
+        setAddModal={setAddModal}
+      />
 
       {/* Facility Table  */}
-      <FacilityTable />
+      <FacilityTable facilities={facilitiesData} />
 
       {/* Facility Grid  */}
-      <FacilityGrid />
+      <FacilityGrid facilities={facilitiesData} />
 
       {/*Modal Overlay  */}
       <div
@@ -30,8 +41,7 @@ const page = () => {
       />
 
       {/* Add Facility Modal  */}
-      <AddFacilityModal addModal={addModal} setAddModal={setAddModal}  />
-
+      <AddFacilityModal addModal={addModal} setAddModal={setAddModal} />
     </div>
   );
 };

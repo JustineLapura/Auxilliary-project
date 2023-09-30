@@ -1,22 +1,15 @@
 import React from "react";
 import FacilityTableCard from "./FacilityTableCard";
 
-const facilities = [
-  {
-    id: 1,
-    facilityName: "AVC_RIC",
-  },
-  {
-    id: 2,
-    facilityName: "Convention Center",
-  },
-  {
-    id: 3,
-    facilityName: "Conference Room",
-  },
-];
+type FacilityProps = {
+  facilities: {
+    id: number;
+    img: string;
+    name: string;
+  }[];
+};
 
-const FacilityTable = () => {
+const FacilityTable = ({ facilities }: FacilityProps) => {
   return (
     <div className="w-full mt-10 hidden sm:block">
       <table className="w-full">
@@ -28,12 +21,15 @@ const FacilityTable = () => {
           </tr>
         </thead>
         <tbody className="text-sm sm:text-base font-semibold text-gray-600">
-          {facilities.map((facility) => (
-            <FacilityTableCard
-              id={facility.id}
-              facilityName={facility.facilityName}
-            />
-          ))}
+          {facilities &&
+            facilities.map((facility: { id: number; img:string; name: string }) => (
+              <FacilityTableCard
+                key={facility.id}
+                id={facility.id}
+                img={facility.img}
+                facilityName={facility.name}
+              />
+            ))}
         </tbody>
       </table>
     </div>

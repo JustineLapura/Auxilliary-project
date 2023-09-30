@@ -2,10 +2,11 @@ import React from "react";
 import { FaSearch } from "react-icons/fa";
 
 type TopHeaderProps = {
+    facilitiesCount: number;
     setAddModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const TopHeader = ({setAddModal} : TopHeaderProps) => {
+const TopHeader = ({ facilitiesCount, setAddModal} : TopHeaderProps) => {
   return (
     <>
       <div className="flex justify-between items-center text-lg font-bold">
@@ -20,7 +21,7 @@ const TopHeader = ({setAddModal} : TopHeaderProps) => {
 
       <div className="w-full flex justify-between items-center mt-12">
         <h1 className=" text-sm lg:text-xl font-semibold text-gray-700">
-          Showing 1 entries
+          Showing <span className="px-3 py-1 rounded bg-gray-300 font-bold text-gray-900">{facilitiesCount}</span> entries
         </h1>
 
         <div className="hidden sm:flex items-center gap-2">

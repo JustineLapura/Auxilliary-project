@@ -48,6 +48,7 @@ const CostumersTable = () => {
             <th>Start Time</th>
             <th>End Time</th>
             <th>Booking Status</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>

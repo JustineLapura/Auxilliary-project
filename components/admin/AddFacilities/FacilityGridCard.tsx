@@ -1,20 +1,23 @@
 "use client";
 import React, { useState } from "react";
 import DeleteFacilityModal from "./DeleteFacilityModal";
+import ViewFacilityModal from "./ViewFacilityModal";
 
 type FacilityGridCardProps = {
   id: number;
+  img: string;
   facilityName: string;
 };
 
-const FacilityGridCard = ({ id, facilityName }: FacilityGridCardProps) => {
+const FacilityGridCard = ({ id, img, facilityName }: FacilityGridCardProps) => {
   const [deleteModal, setDeleteModal] = useState(false);
+  const [viewModal, setViewModal] = useState(false)
   return (
     <>
       <div className="w-[95%] border bg-gray-100 rounded-lg text-center p-5 space-y-2 hover:scale-105 duration-300">
         <div className="flex justify-between items-center">
           <h1 className="text-gray-500">ID {id}</h1>
-          <button className="py-1 px-[18px] border bg-blue-500 hover:bg-blue-600 text-white rounded-lg">
+          <button onClick={() => setViewModal(true)} className="py-1 px-[18px] border bg-blue-500 hover:bg-blue-600 text-white rounded-lg">
             View
           </button>
         </div>
@@ -26,6 +29,8 @@ const FacilityGridCard = ({ id, facilityName }: FacilityGridCardProps) => {
         </div>
       </div>
 
+      {/* View Modal  */}
+      <ViewFacilityModal id={id} img={img} name={facilityName} viewModal={viewModal} setViewModal={setViewModal} />
       {/* Delete Modal  */}
       <DeleteFacilityModal id={id} facilityName={facilityName} deleteModal={deleteModal} setDeleteModal={setDeleteModal}/>
     </>

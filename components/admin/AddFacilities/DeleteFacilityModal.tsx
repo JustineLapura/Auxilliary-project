@@ -30,7 +30,9 @@ const DeleteFacilityModal = ({
             : "fixed h-[300px] w-[400px] px-4 flex flex-col gap-16 justify-center items-center bg-white font-bold rounded-xl top-[-100%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 ease-in duration-300 z-20"
         }
       >
-        <h1 className="text-xl text-center">Are you sure you want to delete {facilityName}?</h1>
+        <h1 className="text-xl text-center">
+          Are you sure you want to delete <br /> {facilityName}?
+        </h1>
         <div className="flex justify-between items-center gap-3">
           <button
             onClick={() => setDeleteModal(false)}
