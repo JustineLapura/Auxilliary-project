@@ -1,26 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 type RentalFacilityCardsProps = {
-    id: number;
-    img: string;
-    facilityName: string;
-}
+  id: number;
+  img: string;
+  facilityName: string;
+};
 
-const RentalFacilityCards = ({id, img, facilityName}: RentalFacilityCardsProps) => {
+const RentalFacilityCards = ({
+  id,
+  img,
+  facilityName,
+}: RentalFacilityCardsProps) => {
   return (
     <div
       key={id}
       className="h-[300px] w-[300px] text-center flex flex-col justify-center items-center gap-4"
     >
-      <Image
-        className="rounded-xl h-full w-full hover:scale-105 duration-200 transform -z-10"
-        width={100}
-        height={100}
-        src={img}
-        alt="logo"
-      />
+      <motion.div className="w-full h-full" whileHover={{ scale: 1.1 }}>
+        <Image
+          className="rounded-xl h-full w-full transform -z-10"
+          width={100}
+          height={100}
+          src={img}
+          alt="logo"
+        />
+      </motion.div>
       <div className="">
         <h1 className="text-xl text-blue-950 font-bold ">{facilityName}</h1>
       </div>

@@ -44,6 +44,7 @@ const Navbar = () => {
         initial={{ x: 500 }}
         animate={{ x: 0 }}
         transition={{ delay: 0.5 }}
+        whileHover={{ textShadow: "0px 0px 8px rgb(255, 255, 255)" }}
       >
         <FaBars size={20} />
       </motion.div>

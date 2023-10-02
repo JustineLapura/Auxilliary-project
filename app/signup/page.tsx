@@ -3,6 +3,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { AiFillHome } from "react-icons/ai";
+import { motion } from "framer-motion";
 
 const page = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -18,7 +19,11 @@ const page = () => {
   };
   return (
     <div className="h-full w-full py-32 bg-gradient-to-b from-blue-500 to-yellow-300 flex justify-center items-center text-gray-900">
-      <div className="w-[80%] md:w-[40%] py-4 px-6 rounded-xl flex flex-col items-center gap-10 bg-white/30">
+      <motion.div
+        className="w-[80%] md:w-[40%] py-4 px-6 mt-6 rounded-xl flex flex-col items-center gap-10 bg-white/30"
+        initial={{ x: "-100vw" }}
+        animate={{ x: 0 }}
+      >
         <h1 className="mt-5 text-xl md:text-2xl text-white font-bold">
           Create an Account
         </h1>
@@ -28,7 +33,7 @@ const page = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <Link href="/login">
+            <Link href="/login" className="w-full">
               <h1>Login</h1>
             </Link>
           </div>
@@ -87,7 +92,7 @@ const page = () => {
             Sign Up
           </button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

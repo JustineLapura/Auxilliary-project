@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import { FaCircle } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 type FacilityCardProps = {
   id: number;
@@ -12,7 +13,11 @@ type FacilityCardProps = {
 
 const FacilityCard = ({ id, img, name, setIsBooking }: FacilityCardProps) => {
   return (
-    <div className="w-full h-ful lg:flex justify-between items-center gap-16">
+    <motion.div
+      className="w-full h-ful lg:flex justify-between items-center gap-16"
+      initial={{ x: "100vw" }}
+      animate={{ x: 0 }}
+    >
       <Image
         className="w-full md:w-[1/2] rounded-lg"
         width={200}
@@ -72,7 +77,7 @@ const FacilityCard = ({ id, img, name, setIsBooking }: FacilityCardProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

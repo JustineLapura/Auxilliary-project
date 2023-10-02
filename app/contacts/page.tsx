@@ -1,5 +1,6 @@
-import Navbar from "@/components/Navbar";
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 const page = () => {
   return (
@@ -7,13 +8,22 @@ const page = () => {
       <div className="absolute top-0 left-0 h-full w-full bg-blue-500/50"></div>
 
       <div className="flex justify-center items-center h-full w-full">
-        <h1 className="text-5xl md:text-7xl font-black text-white z-10 mb-36 tracking-widest">
+        <motion.h1
+          className="text-5xl md:text-7xl font-black text-white z-10 mb-36 tracking-widest"
+          initial={{ y: -500 }}
+          animate={{ y: 0 }}
+        >
           CONTACTS
-        </h1>
+        </motion.h1>
       </div>
 
       {/*image slider  */}
-      <div className="absolute bottom-0 h-20 w-full flex justify-center items-center bg-blue-900 blur"></div>
+      <motion.div
+        className="absolute bottom-0 h-20 w-full flex justify-center items-center bg-blue-900 blur"
+        initial={{ y: 120 }}
+        animate={{ y: 0 }}
+        transition={{ type: "tween" }}
+      />
     </div>
   );
 };
