@@ -18,8 +18,8 @@ const NavMenu = ({ nav, setNav }: NavMenuProps) => {
         transition={{ delay: 2 }}
         className={
           nav
-            ? "fixed h-[75%] w-[90%] bg-blue-800 lg:hidden text-blue-900 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 p-3 rounded-2xl z-20 ease-in duration-300"
-            : "fixed h-[75%] w-[90%] bg-blue-800 text-blue-900 left-1/2 top-[-100%] transform -translate-x-1/2 -translate-y-1/2 p-3 rounded-2xl z-10 ease-in duration-300"
+            ? "fixed h-[75%] w-[90%] lg:hidden text-blue-900 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 p-3 rounded-2xl z-20 ease-in duration-300"
+            : "fixed h-[75%] w-[90%] text-blue-900 left-1/2 top-[-100%] transform -translate-x-1/2 -translate-y-1/2 p-3 rounded-2xl z-10 ease-in duration-300"
         }
       >
         <div className="h-full w-full rounded-xl bg-white border">

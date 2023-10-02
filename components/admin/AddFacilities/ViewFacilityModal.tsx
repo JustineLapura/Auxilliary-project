@@ -22,7 +22,7 @@ const ViewFacilityModal = ({
       <div
         className={
           viewModal
-            ? "fixed w-full h-screen top-0 left-0 bg-blue-900/60 z-20"
+            ? "fixed w-full h-full top-0 left-0 bg-blue-900/60 z-20"
             : ""
         }
       />
@@ -31,8 +31,8 @@ const ViewFacilityModal = ({
       <div
         className={
           viewModal
-            ? "fixed w-[90%] max-w-[500px] h-[90%] max-h-[90%] flex flex-col justify-between bg-white rounded-xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 p-5 ease-in duration-300"
-            : "fixed w-[90%] max-w-[500px] h-[90%] max-h-[90%] flex flex-col justify-between bg-white rounded-xl top-[-100%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 p-5 ease-in duration-300"
+            ? "fixed w-[90%] max-w-[500px] h-[90%] max-h-[600px] flex flex-col justify-between bg-white rounded-xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 p-5 ease-in duration-300"
+            : "fixed w-[90%] max-w-[500px] h-[90%] max-h-[600px] flex flex-col justify-between bg-white rounded-xl top-[-100%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 p-5 ease-in duration-300"
         }
       >
         <Image

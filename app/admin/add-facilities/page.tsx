@@ -5,7 +5,7 @@ import FacilityTable from "@/components/admin/AddFacilities/FacilityTable";
 import TopHeader from "@/components/admin/AddFacilities/TopHeader";
 import React, { useEffect, useState } from "react";
 import { facilities } from "@/app/facilities";
-import Image from "next/image";
+import { motion } from "framer-motion";
 
 const page = () => {
   const [addModal, setAddModal] = useState(false);
@@ -18,12 +18,24 @@ const page = () => {
   }, []);
 
   return (
-    <div className="w-full p-5">
+    <div
+      className="w-full p-5"
+      // initial={{ x: "100vw" }}
+      // animate={{ x: 0 }}
+      // transition={{ type: "tween" }}
+    >
       {/* Top Header Section  */}
-      <TopHeader
-        facilitiesCount={facilitiesData.length}
-        setAddModal={setAddModal}
-      />
+      <motion.div
+        className=""
+        initial={{ x: "100vw" }}
+        animate={{ x: 0 }}
+        transition={{ type: "tween" }}
+      >
+        <TopHeader
+          facilitiesCount={facilitiesData.length}
+          setAddModal={setAddModal}
+        />
+      </motion.div>
 
       {/* Facility Table  */}
       <FacilityTable facilities={facilitiesData} />
