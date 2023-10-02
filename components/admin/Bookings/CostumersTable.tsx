@@ -53,7 +53,7 @@ const CostumersTable = () => {
         </thead>
         <tbody>
           {costumers.map((costumer) => (
-            <CostumersTableCard costumer={costumer} />
+            <CostumersTableCard key={costumer.id} costumer={costumer} />
           ))}
           {/* Add more data rows here */}
         </tbody>

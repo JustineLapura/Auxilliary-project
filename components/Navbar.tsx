@@ -5,14 +5,25 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import NavMenu from "./NavMenu";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
 
   return (
-    <div className="fixed h-24 w-full bg-blue-900/90 mx-auto flex justify-between items-center px-4 z-20">
+    <motion.div
+      className="fixed h-24 w-full bg-blue-900/90 mx-auto flex justify-between items-center px-4 z-20"
+      initial={{ y: -200 }}
+      animate={{ y: 0 }}
+      transition={{ type: "tween" }}
+    >
       {/* left */}
-      <div className="text-white font-bold text-xl flex gap-4 items-center">
+      <motion.div
+        className="text-white font-bold text-xl flex gap-4 items-center"
+        initial={{ x: -500 }}
+        animate={{ x: 0 }}
+        transition={{ delay: 0.5 }}
+      >
         {/* image  */}
         <Image
           className="w-14"
@@ -25,14 +36,17 @@ const Navbar = () => {
           Auxilliary <br />
           Services
         </h1>
-      </div>
+      </motion.div>
 
-      <div
+      <motion.div
         onClick={() => setNav(true)}
         className="lg:hidden text-white cursor-pointer"
+        initial={{ x: 500 }}
+        animate={{ x: 0 }}
+        transition={{ delay: 0.5 }}
       >
         <FaBars size={20} />
-      </div>
+      </motion.div>
 
       {/* Navbar Menu overlay  */}
       <div
@@ -47,7 +61,12 @@ const Navbar = () => {
       <NavMenu nav={nav} setNav={setNav} />
 
       {/* right  */}
-      <div className="h-full hidden lg:flex items-center gap-16 text-white">
+      <motion.div
+        className="h-full hidden lg:flex items-center gap-16 text-white"
+        initial={{ x: "100vw" }}
+        animate={{ x: 0 }}
+        transition={{ delay: 0.5 }}
+      >
         <ul className="flex justify-center items-center uppercase text-lg gap-8">
           <Link className="hover:text-blue-200/90" href="/">
             <li>Home</li>
@@ -72,8 +91,8 @@ const Navbar = () => {
             </button>
           </Link>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

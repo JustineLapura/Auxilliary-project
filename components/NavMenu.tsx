@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 type NavMenuProps = {
   nav: boolean;
@@ -10,9 +11,11 @@ type NavMenuProps = {
 const NavMenu = ({ nav, setNav }: NavMenuProps) => {
   return (
     <>
-
       {/* Hamburger Menu  */}
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
         className={
           nav
             ? "fixed h-[75%] w-[90%] bg-blue-800 lg:hidden text-blue-900 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 p-3 rounded-2xl z-20 ease-in duration-300"
@@ -70,7 +73,7 @@ const NavMenu = ({ nav, setNav }: NavMenuProps) => {
         >
           <FaTimes size={20} />
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

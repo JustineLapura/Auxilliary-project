@@ -39,7 +39,7 @@ const CostumersGrid = () => {
   return (
     <div className="md:hidden w-full grid place-items-center gap-4 mt-8">
       {costumers.map((costumer) => (
-        <CostumersGridCard costumer={costumer} />
+        <CostumersGridCard key={costumer.id} costumer={costumer} />
       ))}
     </div>
   );
