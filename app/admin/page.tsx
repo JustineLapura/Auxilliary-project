@@ -12,6 +12,7 @@ const page = () => {
           className="text-2xl lg:text-5xl font-black text-gray-950 text-center"
           initial={{ opacity: 0, y: -200 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "tween" }}
         >
           Welcome Admin!
         </motion.h1>
@@ -19,6 +20,7 @@ const page = () => {
           className="flex gap-4 text-lg lg:text-2xl font-bold text-gray-500"
           initial={{ opacity: 0, y: -200 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", damping: 16 }}
         >
           <p>September 26, 2023</p>
           <p>Moday, 12:28 PM</p>

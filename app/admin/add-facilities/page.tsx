@@ -20,16 +20,13 @@ const page = () => {
   return (
     <div
       className="w-full p-5"
-      // initial={{ x: "100vw" }}
-      // animate={{ x: 0 }}
-      // transition={{ type: "tween" }}
     >
       {/* Top Header Section  */}
       <motion.div
         className=""
         initial={{ x: "100vw" }}
         animate={{ x: 0 }}
-        transition={{ type: "tween" }}
+        transition={{ type: "spring", damping: 16 }}
       >
         <TopHeader
           facilitiesCount={facilitiesData.length}

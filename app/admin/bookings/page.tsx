@@ -12,7 +12,7 @@ const page = () => {
       className="flex flex-col justify-between w-full h-full min-h-[100%] p-5"
       initial={{ x: "100vw" }}
       animate={{ x: 0 }}
-      transition={{ type: "tween" }}
+      transition={{ type: "spring", damping: 16 }}
     >
       {/* Filters  */}
       <Filters />

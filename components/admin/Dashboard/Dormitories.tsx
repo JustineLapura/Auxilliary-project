@@ -9,14 +9,14 @@ const Dormitories = () => {
         className="flex gap-4 text-lg lg:text-2xl font-bold text-gray-600 my-3"
         initial={{ x: "100vw" }}
         animate={{ x: 0 }}
-        transition={{ delay: 0.6, type: "tween" }}
+        transition={{ delay: 0.6, type: "spring", damping: 16 }}
       >
         Dormitories
       </motion.h1>
       <motion.div className="w-full grid md:grid-cols-3 place-items-center gap-4 lg:gap-10"
       initial={{ x: "100vw" }}
       animate={{ x: 0 }}
-      transition={{ delay: 0.8, type: "tween" }}>
+      transition={{ delay: 0.8, type: "spring", damping: 16 }}>
         {/* card1 */}
         <motion.div className="w-[300px] h-[100px] flex justify-between items-center p-4 rounded-lg bg-yellow-500 hover:scale-105 hover:bg-yellow-600 duration-200">
           <FaDesktop className="w-1/4 h-full" size={25} />

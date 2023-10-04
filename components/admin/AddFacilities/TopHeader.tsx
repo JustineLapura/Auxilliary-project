@@ -27,7 +27,7 @@ const TopHeader = ({ facilitiesCount, setAddModal} : TopHeaderProps) => {
         <div className="hidden sm:flex items-center gap-2">
           <h1 className="text-gray-900 font-bold">Search</h1>
           <input
-            className="border-2 border-gray-300 py-1 ps-8"
+            className="border-2 border-gray-300 py-1 ps-8 sm:ps-2"
             type="text"
             name=""
             id=""
