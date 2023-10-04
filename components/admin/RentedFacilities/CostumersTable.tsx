@@ -3,24 +3,27 @@ import CostumersTableCard from "./RentedFacilityTableCard";
 
 const rentedFacilities = [
   {
+    id: 1,
     facility: "Conference Room",
     name: "Jireh Lapura",
     date: "09/22/2021",
-    time: "2:00 PM"
+    time: "2:00 PM",
   },
   {
+    id: 2,
     facility: "SSU Gymnasium",
     name: "Justine Lapura",
     date: "09/25/2021",
-    time: "8:00 AM"
+    time: "8:00 AM",
   },
   {
+    id: 3,
     facility: "Convention Room",
     name: "Jethro Lapura",
     date: "09/31/2021",
-    time: "5:00 PM"
-  }
-]
+    time: "5:00 PM",
+  },
+];
 
 const CostumersTable = () => {
   return (
@@ -35,8 +38,14 @@ const CostumersTable = () => {
           </tr>
         </thead>
         <tbody>
-          {rentedFacilities.map(rentedFacility => (
-            <CostumersTableCard facility={rentedFacility.facility} name={rentedFacility.name} date={rentedFacility.date} time={rentedFacility.time} />
+          {rentedFacilities.map((rentedFacility) => (
+            <CostumersTableCard
+            key={rentedFacility.id}
+              facility={rentedFacility.facility}
+              name={rentedFacility.name}
+              date={rentedFacility.date}
+              time={rentedFacility.time}
+            />
           ))}
           <tr className="text-xs md:text-base font-semibold text-gray-700 py-2">
             <td>Conference Room</td>

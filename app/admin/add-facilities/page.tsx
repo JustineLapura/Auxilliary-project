@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import { facilities } from "@/app/facilities";
 import { motion } from "framer-motion";
 
-const page = () => {
+const Page = () => {
   const [addModal, setAddModal] = useState(false);
   const [facilitiesData, setFacilitiesData] = useState<
     { id: number; img: string; name: string }[]
@@ -55,4 +55,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

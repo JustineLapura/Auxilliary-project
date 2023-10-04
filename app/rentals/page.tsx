@@ -24,6 +24,7 @@ const Page = () => {
         >
           {facilities.map((facility) => (
             <RentalFacilityCards
+            key={facility.id}
               id={facility.id}
               img={facility.img}
               facilityName={facility.name}

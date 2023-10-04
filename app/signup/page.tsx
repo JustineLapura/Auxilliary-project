@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { AiFillHome } from "react-icons/ai";
 import { motion } from "framer-motion";
 
-const page = () => {
+const Page = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   // Event handler for when the mouse enters the element
@@ -97,4 +97,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
