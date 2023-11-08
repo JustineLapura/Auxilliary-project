@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiFillHome } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -10,21 +10,24 @@ import { useRouter } from "next/navigation";
 const Page = () => {
   const router = useRouter();
 
-  const usernameData = localStorage.getItem("username");
-  const passwordData = localStorage.getItem("password");
-
   const [isHovered, setIsHovered] = useState(false);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
 
-  console.log("Username: ", username, "Password: ", password)
+  // console.log("Username: ", username, "Password: ", password)
 
-  const handleLogin = () => {
-    if(username === usernameData && password === passwordData){
-      localStorage.setItem("isLoggedin", `${true}`)
-      router.push("/")
-    }
-  };
+  // useEffect(() => {
+  //   const usernameData = localStorage.getItem("username");
+  //   const passwordData = localStorage.getItem("password");
+  //   console.log("Username: ", usernameData, "Password: ", passwordData);
+  // }, []);
+
+  // const handleLogin = () => {
+  //   if(username === usernameData && password === passwordData){
+  //     localStorage.setItem("isLoggedin", `${true}`)
+  //     router.push("/")
+  //   }
+  // };
 
   // Event handler for when the mouse enters the element
   const handleMouseEnter = () => {
@@ -89,13 +92,13 @@ const Page = () => {
             className="py-2 px-4 rounded-full bg-white/80 shadow-lg"
             type="text"
             placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)}
+            // onChange={(e) => setUsername(e.target.value)}
           />
           <input
             className="py-2 px-4 rounded-full bg-white/80 shadow-lg"
             type="text"
             placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
+            // onChange={(e) => setPassword(e.target.value)}
           />
           <div className="w-full space-y-2">
             <div className="flex justify-center gap-2">
@@ -104,8 +107,10 @@ const Page = () => {
                   <AiFillHome size={25} />
                 </button>
               </Link>
-              <button className="py-2 px-8 rounded-lg bg-blue-500 font-bold shadow-xl text-white "
-              onClick={handleLogin}>
+              <button
+                className="py-2 px-8 rounded-lg bg-blue-500 font-bold shadow-xl text-white "
+                // onClick={handleLogin}
+              >
                 Login
               </button>
             </div>
