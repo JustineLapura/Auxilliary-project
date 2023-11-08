@@ -4,18 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const Main = () => {
-  const isLoggedinData: string | null = localStorage.getItem("isLoggedin");
-
-  const [isLoggedin, setIsLoggedin] = useState<boolean>(
-    isLoggedinData === "true"
-  );
-
-  useEffect(() => {
-    setIsLoggedin(isLoggedinData === "true");
-  }, [isLoggedin]);
-
-  console.log(isLoggedin);
-
   return (
     <div className='relative h-screen w-full  bg-[url("/SSU.jpg")] bg-no-repeat bg-cover bg-center'>
       <div className="absolute top-0 left-0 h-full w-full bg-blue-500/50"></div>
@@ -24,11 +12,9 @@ const Main = () => {
         initial={{ x: 500 }}
         animate={{ x: 0 }}
       >
-        {isLoggedin && (
-          <p className="text-green-500 font-bold px-3 py-2">
-            You are logged in successfuly!
-          </p>
-        )}
+        <p className="text-green-500 font-bold px-3 py-2">
+          You are logged in successfuly!
+        </p>
       </motion.div>
       <div className="relative px-4 h-full w-full flex flex-col gap-8 items-center justify-center text-white font-bold">
         {/* Main Text */}
