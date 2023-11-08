@@ -47,7 +47,6 @@ const NavMenu = ({ nav, setNav }: NavMenuProps) => {
                 Contact Us
               </Link>
             </li>
-
             <li className="w-full flex flex-col space-y-4">
               <Link
                 onClick={() => setNav(false)}

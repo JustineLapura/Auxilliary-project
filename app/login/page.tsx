@@ -5,9 +5,26 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { AiFillHome } from "react-icons/ai";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
+  const router = useRouter();
+
+  const usernameData = localStorage.getItem("username");
+  const passwordData = localStorage.getItem("password");
+
   const [isHovered, setIsHovered] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  console.log("Username: ", username, "Password: ", password)
+
+  const handleLogin = () => {
+    if(username === usernameData && password === passwordData){
+      localStorage.setItem("isLoggedin", `${true}`)
+      router.push("/")
+    }
+  };
 
   // Event handler for when the mouse enters the element
   const handleMouseEnter = () => {
@@ -35,7 +52,7 @@ const Page = () => {
             alt="logo"
           />
         </div>
-        <div className="flex flex-col gap-8 justify-center items-center px-16">
+        <div className="flex flex-col gap-6 justify-center items-center px-16">
           <div className="">
             <Image
               className="w-24 lg:hidden"
@@ -72,21 +89,33 @@ const Page = () => {
             className="py-2 px-4 rounded-full bg-white/80 shadow-lg"
             type="text"
             placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
           />
           <input
             className="py-2 px-4 rounded-full bg-white/80 shadow-lg"
             type="text"
             placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <div className="flex gap-2">
-            <Link href="/">
-              <button className="py-2 px-3 rounded-lg bg-red-500/80 font-bold shadow-xl text-white ">
-                <AiFillHome size={25} />
+          <div className="w-full space-y-2">
+            <div className="flex justify-center gap-2">
+              <Link href="/">
+                <button className="py-2 px-2 rounded-lg bg-red-500/80 font-bold shadow-xl text-white ">
+                  <AiFillHome size={25} />
+                </button>
+              </Link>
+              <button className="py-2 px-8 rounded-lg bg-blue-500 font-bold shadow-xl text-white "
+              onClick={handleLogin}>
+                Login
               </button>
-            </Link>
-            <button className="py-2 px-8 rounded-lg bg-blue-500 font-bold shadow-xl text-white ">
-              Login
-            </button>
+            </div>
+            <div className="w-full flex justify-center">
+              <Link href="/admin">
+                <button className="py-2 px-5 rounded-lg bg-gray-500 font-bold shadow-xl text-white ">
+                  Login as Admin
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </motion.div>
