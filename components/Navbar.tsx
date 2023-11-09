@@ -2,12 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import NavMenu from "./NavMenu";
 import { motion } from "framer-motion";
+import UsersContext from "@/contextApi/UsersContext";
 
 const Navbar = () => {
+  const { isLoggedin, setIsLoggedin } = useContext(UsersContext);
   const [nav, setNav] = useState(false);
 
   return (
@@ -82,16 +84,27 @@ const Navbar = () => {
             <li>Contact Us</li>
           </Link>
         </ul>
-        <div className="flex items-center gap-8 text-xl font-bold">
-          <Link className="hover:text-blue-200/90" href="/login">
-            <button>Login</button>
-          </Link>
-          <Link href="signup">
-            <button className="py-3 border border-yellow-400 bg-yellow-400 hover:bg-yellow-300 hover:scale-105 duration-300 px-6 rounded-xl ">
-              Sign Up
+        {isLoggedin ? (
+          <Link href="/">
+            <button
+              className="py-3 border border-yellow-400 bg-yellow-400 hover:bg-yellow-300 font-bold hover:scale-105 duration-300 px-6 rounded-xl "
+              onClick={() => setIsLoggedin(false)}
+            >
+              Logout
             </button>
           </Link>
-        </div>
+        ) : (
+          <div className="flex items-center gap-8 text-xl font-bold">
+            <Link className="hover:text-blue-200/90" href="/login">
+              <button>Login</button>
+            </Link>
+            <Link href="signup">
+              <button className="py-3 border border-yellow-400 bg-yellow-400 hover:bg-yellow-300 hover:scale-105 duration-300 px-6 rounded-xl ">
+                Sign Up
+              </button>
+            </Link>
+          </div>
+        )}
       </motion.div>
     </motion.div>
   );

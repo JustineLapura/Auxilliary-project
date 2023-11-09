@@ -2,32 +2,46 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { AiFillHome } from "react-icons/ai";
 import { motion } from "framer-motion";
+import UsersContext from "@/contextApi/UsersContext";
 import { useRouter } from "next/navigation";
 
+interface User {
+  id: string;
+  username: string;
+  password: string;
+  // ... other properties
+}
+
 const Page = () => {
+  const { isLoggedin, setIsLoggedin, users, setSelectedUser } =
+    useContext(UsersContext);
   const router = useRouter();
 
   const [isHovered, setIsHovered] = useState(false);
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorPrompt, setErrorPrompt] = useState("");
 
-  // console.log("Username: ", username, "Password: ", password)
+  console.log("Username: ", username, "Password: ", password);
 
-  // useEffect(() => {
-  //   const usernameData = localStorage.getItem("username");
-  //   const passwordData = localStorage.getItem("password");
-  //   console.log("Username: ", usernameData, "Password: ", passwordData);
-  // }, []);
+  const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
 
-  // const handleLogin = () => {
-  //   if(username === usernameData && password === passwordData){
-  //     localStorage.setItem("isLoggedin", `${true}`)
-  //     router.push("/")
-  //   }
-  // };
+    const user = users.find(
+      (user: User) => user.username === username && user.password === password
+    );
+
+    if (user) {
+      setIsLoggedin(true);
+      setSelectedUser(user);
+      return router.push("/");
+    } else {
+      setErrorPrompt("You have entered wrong account.");
+    }
+  };
 
   // Event handler for when the mouse enters the element
   const handleMouseEnter = () => {
@@ -92,14 +106,17 @@ const Page = () => {
             className="py-2 px-4 rounded-full bg-white/80 shadow-lg"
             type="text"
             placeholder="Username"
-            // onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <input
             className="py-2 px-4 rounded-full bg-white/80 shadow-lg"
-            type="text"
+            type="password"
             placeholder="Password"
-            // onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
+          {errorPrompt && (
+            <p className="text-center text-sm text-red-500">{errorPrompt}</p>
+          )}
           <div className="w-full space-y-2">
             <div className="flex justify-center gap-2">
               <Link href="/">
@@ -109,7 +126,7 @@ const Page = () => {
               </Link>
               <button
                 className="py-2 px-8 rounded-lg bg-blue-500 font-bold shadow-xl text-white "
-                // onClick={handleLogin}
+                onClick={handleLogin}
               >
                 Login
               </button>

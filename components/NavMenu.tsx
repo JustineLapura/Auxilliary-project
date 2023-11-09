@@ -1,7 +1,8 @@
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import { FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
+import UsersContext from "@/contextApi/UsersContext";
 
 type NavMenuProps = {
   nav: boolean;
@@ -9,6 +10,13 @@ type NavMenuProps = {
 };
 
 const NavMenu = ({ nav, setNav }: NavMenuProps) => {
+  const { isLoggedin, setIsLoggedin } = useContext(UsersContext);
+
+  const handleLogout = () => {
+    setIsLoggedin(false)
+    setNav(false)
+  }
+
   return (
     <>
       {/* Hamburger Menu  */}
@@ -47,22 +55,34 @@ const NavMenu = ({ nav, setNav }: NavMenuProps) => {
                 Contact Us
               </Link>
             </li>
-            <li className="w-full flex flex-col space-y-4">
-              <Link
-                onClick={() => setNav(false)}
-                href="/login"
-                className="w-full text-center font-semibold border-2 border-blue-400 hover:bg-blue-400 hover:text-white duration-300 px-6 py-2 rounded-full cursor-pointer"
-              >
-                Login
-              </Link>
-              <Link
-                onClick={() => setNav(false)}
-                href="/signup"
-                className="w-full text-center font-semibold border-2 border-blue-400 hover:bg-yellow-300 hover:border-yellow-300 hover:text-white duration-300 px-6 py-2 rounded-full cursor-pointer"
-              >
-                Sign Up
-              </Link>
-            </li>
+            {isLoggedin ? (
+              <li>
+                <Link
+                  onClick={handleLogout}
+                  href="/"
+                  className="w-full text-center font-semibold border-2 border-blue-400 hover:bg-yellow-300 hover:border-yellow-300 hover:text-white duration-300 px-6 py-2 rounded-full cursor-pointer"
+                >
+                  Logout
+                </Link>
+              </li>
+            ) : (
+              <li className="w-full flex flex-col space-y-4">
+                <Link
+                  onClick={() => setNav(false)}
+                  href="/login"
+                  className="w-full text-center font-semibold border-2 border-blue-400 hover:bg-blue-400 hover:text-white duration-300 px-6 py-2 rounded-full cursor-pointer"
+                >
+                  Login
+                </Link>
+                <Link
+                  onClick={() => setNav(false)}
+                  href="/signup"
+                  className="w-full text-center font-semibold border-2 border-blue-400 hover:bg-yellow-300 hover:border-yellow-300 hover:text-white duration-300 px-6 py-2 rounded-full cursor-pointer"
+                >
+                  Sign Up
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
 

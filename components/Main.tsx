@@ -1,21 +1,36 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import UsersContext from "@/contextApi/UsersContext";
 
 const Main = () => {
+  const { isLoggedin } = useContext(UsersContext);
+
   return (
     <div className='relative h-screen w-full  bg-[url("/SSU.jpg")] bg-no-repeat bg-cover bg-center'>
       <div className="absolute top-0 left-0 h-full w-full bg-blue-500/50"></div>
-      <motion.div
-        className="fixed top-28 right-5 h-10 bg-gray-100 rounded-lg z-20"
-        initial={{ x: 500 }}
-        animate={{ x: 0 }}
-      >
-        <p className="text-green-500 font-bold px-3 py-2">
-          You are logged in successfuly!
-        </p>
-      </motion.div>
+      {isLoggedin ? (
+        <motion.div
+          className="fixed top-28 right-5 h-10 bg-gray-100 rounded-lg z-20"
+          initial={{ x: 500 }}
+          animate={{ x: 0 }}
+        >
+          <p className="text-green-500 font-bold px-3 py-2">
+            You are logged in successfuly!
+          </p>
+        </motion.div>
+      ) : (
+        <motion.div
+          className="fixed top-28 right-5 h-10 bg-gray-100 rounded-lg z-20"
+          initial={{ x: 500 }}
+          animate={{ x: 0 }}
+        >
+          <p className="text-red-500 font-bold px-3 py-2">
+            You logged out successfuly!
+          </p>
+        </motion.div>
+      )}
       <div className="relative px-4 h-full w-full flex flex-col gap-8 items-center justify-center text-white font-bold">
         {/* Main Text */}
         <div className="grid place-items-center gap-2 lg:gap-4 text-center">
