@@ -1,61 +1,35 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { AiFillHome } from "react-icons/ai";
 import { motion } from "framer-motion";
+import UsersContext from "@/contextApi/UsersContext";
 import { useRouter } from "next/navigation";
 
 
 const Page = () => {
+  const { users,
+    setSelectedUser,
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
+    username,
+    setUsername,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    passwordConfirm,
+    setPasswordConfirm,
+    errorMessage,
+    setErrorMessage,
+    handleFormSubmit
+   } = useContext(UsersContext)
   const router = useRouter();
 
   const [isHovered, setIsHovered] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [isPasswordMatch, setIsPasswordMatch] = useState(true);
-  const [formError, setFormError] = useState(false);
-  const [emailError, setEmailError] = useState(false);
-
-  const handleSignUp = () => {
-    // Regular expression for validating an Email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (
-      firstName === "" ||
-      lastName === "" ||
-      username === "" ||
-      email === "" ||
-      password === "" ||
-      confirmPassword === ""
-    ) {
-      setFormError(true);
-      setEmailError(false);
-      setIsPasswordMatch(true);
-    } else if (!emailRegex.test(email)) {
-      setEmailError(true);
-      setFormError(false);
-      setIsPasswordMatch(true);
-    } else if (password === confirmPassword) {
-      // Passwords match, proceed with registration logic here
-      // You can save user information to the database or perform any desired actions.
-
-      localStorage.setItem("username", username);
-      localStorage.setItem("password", password);
-      localStorage.setItem("isLoggedin", `${true}`)
-
-      router.push("/");
-    } else {
-      // Passwords do not match, show error message or handle it accordingly
-      setIsPasswordMatch(false);
-      setFormError(false);
-      setEmailError(false);
-    }
-  };
 
   // Event handler for when the mouse enters the element
   const handleMouseEnter = () => {
@@ -145,36 +119,18 @@ const Page = () => {
             className="py-2 px-4 rounded-full bg-white/80 shadow-lg"
             type="password"
             placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={passwordConfirm}
+            onChange={(e) => setPasswordConfirm(e.target.value)}
             required
           />
         </div>
-        {!isPasswordMatch && (
+        {errorMessage && (
           <motion.p
             className="w-full text-red-500 text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: [1, 0, 1] }}
           >
-            Passwords do not match. Please try again.
-          </motion.p>
-        )}
-        {formError && (
-          <motion.p
-            className="w-full text-red-500 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [1, 0, 1] }}
-          >
-            Please fill the form correctly!
-          </motion.p>
-        )}
-        {emailError && (
-          <motion.p
-            className="w-full text-red-500 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [1, 0, 1] }}
-          >
-            Invalid email address. Please enter a valid email.
+            {errorMessage}
           </motion.p>
         )}
         <div className="flex gap-2">
@@ -185,7 +141,7 @@ const Page = () => {
           </Link>
           <button
             className="py-2 px-8 rounded-lg bg-blue-500 font-bold shadow-xl text-white "
-            onClick={handleSignUp}
+            onClick={handleFormSubmit}
           >
             Sign Up
           </button>
