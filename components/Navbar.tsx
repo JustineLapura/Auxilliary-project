@@ -28,10 +28,10 @@ const Navbar = () => {
       >
         {/* image  */}
         <Image
-          className="w-14"
+          className="w-14 rounded-full border-2 border-white"
           width={80}
           height={80}
-          src="/ssunewlogo.png"
+          src="/auxillaryLogo.png"
           alt="logo"
         />
         <h1 className="text-xl font-black">

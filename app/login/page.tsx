@@ -65,7 +65,7 @@ const Page = () => {
             className="w-1/2 hidden lg:flex"
             width={100}
             height={100}
-            src="/ssunewlogo.png"
+            src="/ssuBigLogo.png"
             alt="logo"
           />
         </div>

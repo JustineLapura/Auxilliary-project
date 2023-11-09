@@ -3,9 +3,19 @@ import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import UsersContext from "@/contextApi/UsersContext";
+import { useRouter } from "next/navigation";
 
 const Main = () => {
   const { isLoggedin } = useContext(UsersContext);
+  const router = useRouter();
+
+  const handleCheckAvailability = () => {
+    if (isLoggedin) {
+      router.push("/rentals")
+    } else {
+      router.push("/login")
+    }
+  }
 
   return (
     <div className='relative h-screen w-full  bg-[url("/SSU.jpg")] bg-no-repeat bg-cover bg-center'>
@@ -61,8 +71,8 @@ const Main = () => {
             Unleash the Magic of our Spaces
           </motion.h1>
           {/* Main button  */}
-          <Link href="/rentals">
             <motion.button
+            onClick={handleCheckAvailability}
               className="py-3 px-6 rounded-xl mt-4 bg-yellow-300/90 font-bold shadow-xl"
               initial={{ y: "-100vh" }}
               animate={{ y: 0 }}
@@ -80,7 +90,6 @@ const Main = () => {
             >
               Check Availability
             </motion.button>
-          </Link>
         </div>
       </div>
 
