@@ -6,27 +6,27 @@ export const facilities = [
     },
     {
       id: 2,
-      img: "/SSU.jpg",
+      img: "/facilities/pic2.jpg",
       name: "Conference Room",
     },
     {
       id: 3,
-      img: "/SSU.jpg",
+      img: "/facilities/convention.jpg",
       name: "Convention Center",
     },
     {
       id: 4,
-      img: "/SSU.jpg",
+      img: "/facilities/ric-avc.jpg",
       name: "RIC-AVC",
     },
     {
       id: 5,
-      img: "/SSU.jpg",
+      img: "/facilities/avc.jpg",
       name: "CAS-AVC",
     },
     {
       id: 6,
-      img: "/SSU.jpg",
+      img: "/facilities/functionRoom.jpg",
       name: "Function Room (COED)",
     }
   ];
