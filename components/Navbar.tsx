@@ -7,11 +7,19 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import NavMenu from "./NavMenu";
 import { motion } from "framer-motion";
 import UsersContext from "@/contextApi/UsersContext";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const { isLoggedin, setIsLoggedin } = useContext(UsersContext);
   const [nav, setNav] = useState(false);
 
+  const router = useRouter()
+
+  const handleLogout = () => {
+    setIsLoggedin(false)
+    router.push("/")
+  }
+   
   return (
     <motion.div
       className="fixed h-24 w-full bg-blue-900/90 mx-auto flex justify-between items-center px-4 z-20"
@@ -85,14 +93,12 @@ const Navbar = () => {
           </Link>
         </ul>
         {isLoggedin ? (
-          <Link href="/">
             <button
               className="py-3 border border-yellow-400 bg-yellow-400 hover:bg-yellow-300 font-bold hover:scale-105 duration-300 px-6 rounded-xl "
-              onClick={() => setIsLoggedin(false)}
+              onClick={handleLogout}
             >
               Logout
             </button>
-          </Link>
         ) : (
           <div className="flex items-center gap-8 text-xl font-bold">
             <Link className="hover:text-blue-200/90" href="/login">

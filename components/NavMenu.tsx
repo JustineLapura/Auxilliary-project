@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
 import UsersContext from "@/contextApi/UsersContext";
+import {useRouter} from "next/navigation"
 
 type NavMenuProps = {
   nav: boolean;
@@ -11,10 +12,12 @@ type NavMenuProps = {
 
 const NavMenu = ({ nav, setNav }: NavMenuProps) => {
   const { isLoggedin, setIsLoggedin } = useContext(UsersContext);
+  const router = useRouter()
 
   const handleLogout = () => {
     setIsLoggedin(false)
     setNav(false)
+    router.push("/")
   }
 
   return (
@@ -57,13 +60,12 @@ const NavMenu = ({ nav, setNav }: NavMenuProps) => {
             </li>
             {isLoggedin ? (
               <li>
-                <Link
+                <button
                   onClick={handleLogout}
-                  href="/"
                   className="w-full text-center font-semibold border-2 border-blue-400 hover:bg-yellow-300 hover:border-yellow-300 hover:text-white duration-300 px-6 py-2 rounded-full cursor-pointer"
                 >
                   Logout
-                </Link>
+                </button>
               </li>
             ) : (
               <li className="w-full flex flex-col space-y-4">
